@@ -15,9 +15,10 @@ jobs:
       - run: ./.scripts/install-deps.sh
       - run: ./.scripts/install-meteor.sh
       - save_cache:
-          key: v1-build-cache-{{ .Environment.variableName }}
-          paths: 
-            - /home/circleci/.meteor
+        key: v1-build-cache-{{ .Environment.variableName }}
+        paths: 
+          - /home/circleci/.meteor
+      - run: ./.scripts/build-meteor.sh
 
 workflows:
   version: 2
