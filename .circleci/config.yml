@@ -1,10 +1,6 @@
 version: 2.1
 jobs:
   build:
-    branches:
-      only:
-        - master
-
     docker:
       - image: circleci/node:8
 
@@ -16,4 +12,8 @@ workflows:
   version: 2
   master-release:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - master
