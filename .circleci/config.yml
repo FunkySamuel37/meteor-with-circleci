@@ -4,8 +4,10 @@ jobs:
     branches:
       only:
         - master
+
     docker:
       - image: circleci/node:8
+
     steps:
       - checkout
       - run: ./.scripts/install-deps.sh
