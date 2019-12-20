@@ -1,16 +1,19 @@
 version: 2.1
+jobs:
+  build:
+    branches:
+      only:
+        - master
+
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - checkout
+      - run: ./.scripts/install-deps.sh
+
 workflows:
   version: 2
   master-release:
     jobs:
-      - build:
-          branches:
-            only:
-              - master
-
-          docker:
-            - image: circleci/node:8
-
-          steps:
-            - checkout
-            - run: ./.scripts/install-deps.sh
+      - build
