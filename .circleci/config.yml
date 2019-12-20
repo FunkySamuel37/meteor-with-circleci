@@ -6,7 +6,8 @@ jobs:
 
     environment:
       METEOR_VERSION: 1.8.1
-
+      BUNDLE_DIR: /home/circleci/bundle
+      BUILD_FLAGS: --architecture os.linux.x86_64  --allow-superuser --server-only
     steps:
       - checkout
       - restore_cache:
