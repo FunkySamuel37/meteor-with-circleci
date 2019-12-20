@@ -10,11 +10,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-build-cache-{{ .Environment.variableName }
+          key: v1-build-cache-{{ .Environment.variableName }}
       - run: ./.scripts/install-deps.sh
       - run: ./.scripts/install-meteor.sh
       - save_cache:
-          key: v1-build-cache-{{ .Environment.variableName }
+          key: v1-build-cache-{{ .Environment.variableName }}
           paths: 
             - /home/circleci/.meteor
 
