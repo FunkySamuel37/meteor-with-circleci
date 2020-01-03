@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-sudo apt-get update
+apt-get update
 
-sudo apt-get install -y --no-install-recommends curl bzip2 bsdtar build-essential python git
+apt-get install -y --no-install-recommends curl ca-certificates bzip2 bsdtar build-essential python git

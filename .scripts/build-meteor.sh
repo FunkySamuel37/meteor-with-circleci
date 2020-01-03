@@ -2,11 +2,14 @@
 
 set -e
 
-echo "NPM_TOKEN is $NPM_TOKEN"
 if [[ "$NPM_TOKEN" ]]; then
   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 fi
 
-meteor npm install
+export METEOR_ALLOW_SUPERUSER=true
 
-meteor build --directory $BUNDLE_DIR $BUILD_FLAGS
+meteor npm ci
+
+
+echo $BUILD_FLAGS
+meteor build ../bundle --directory --architecture os.linux.x86_64 --server-only
