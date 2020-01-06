@@ -1,0 +1,25 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: whoan/docker-build-with-cache-action@v3
+      with:
+        username: "funkyway"
+        password: "${{ secrets.DOCKER_TOKEN }}"
+        image_name: funkyway/github-action-test
+        registry: docker.pkg.github.com
+        context: node-alpine-slim
+    - name: build docker image
+      run: |
+        ./build-docker.sh
+      env:
+        CI: true
+        METEOR_VERSION: 1.8.1
+        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
