@@ -2,11 +2,10 @@ name: Node CI
 
 on: [push]
 
-env:
-  BUNDLE_DIR: ${{ env.HOME }}/bundle
-
 jobs:
   build:
+    env:
+      BUNDLE_DIR: ${{ env.HOME }}/bundle
 
     runs-on: ubuntu-latest
 
