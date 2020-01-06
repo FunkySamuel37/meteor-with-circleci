@@ -7,9 +7,11 @@ if [[ "$NPM_TOKEN" ]]; then
 fi
 
 export METEOR_ALLOW_SUPERUSER=true
-
 meteor npm ci
 
 
 echo $BUILD_FLAGS
+echo ---build meteor start--->
+
+export METEOR_PROFILE=1
 meteor build ../bundle --directory --architecture os.linux.x86_64 --server-only

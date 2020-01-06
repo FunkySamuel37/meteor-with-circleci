@@ -1,6 +1,6 @@
 FROM node:8-jessie
 
-# ENV BUILD_FLAGS="--architecture os.linux.x86_64  --allow-superuser --server-only"
+ENV BUILD_FLAGS="--architecture os.linux.x86_64  --allow-superuser --server-only"
 ENV METEOR_VERSION="1.8.1"
 ENV METEOR_ALLOW_SUPERUSER=true
 WORKDIR /appsrc
