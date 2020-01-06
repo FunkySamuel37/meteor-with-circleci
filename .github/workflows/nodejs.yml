@@ -14,7 +14,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
-      run: echo ${BUNDLE_DIR}
+      run: |
+        echo ${HOME}
+        echo ${BUNDLE_DIR}
       env:
         CI: true
         METEOR_VERSION: 1.8.1
