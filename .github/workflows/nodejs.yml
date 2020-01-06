@@ -2,6 +2,9 @@ name: Node CI
 
 on: [push]
 
+env:
+  BUNDLE_DIR: ${{ env.HOME }}/bundle
+
 jobs:
   build:
 
@@ -17,7 +20,6 @@ jobs:
       env:
         CI: true
         METEOR_VERSION: 1.8.1
-        BUNDLE_DIR: ${{ env.home }}
         BUILD_FLAGS: --architecture os.linux.x86_64  --allow-superuser --server-only
       run: |
         echo ${HOME}
