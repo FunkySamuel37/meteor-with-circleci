@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: whoan/docker-build-with-cache-action@v3
       with:
-        username: "funkyway"
+        username: "${{ secrets.DOCKER_USERNAME }}"
         password: "${{ secrets.DOCKER_TOKEN }}"
         image_name: funkyway/github-action-test
     - name: build docker image

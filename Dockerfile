@@ -10,7 +10,7 @@ COPY .scripts ./.scripts
 RUN ./.scripts/install-deps.sh
 RUN ./.scripts/install-meteor.sh
 
-COPY package-lock.json .
+COPY package.json package-lock.json ./
 RUN ./.scripts/install-packages.sh
 
 COPY . .
