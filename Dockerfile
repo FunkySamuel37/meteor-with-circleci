@@ -19,6 +19,4 @@ EXPOSE 8080
 CMD []
 ENV PORT 8080
 ENV MONGO_URL=$MONGO_SERVICE_HOST:$MONGO_SERVICE_PORT
-RUN ls
-RUN pwd
-ENTRYPOINT /usr/local/bin/node /bundle/programs/server/main.js
+ENTRYPOINT node main.js

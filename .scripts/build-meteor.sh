@@ -15,4 +15,4 @@ echo $BUILD_FLAGS
 echo "---build meteor start--->"
 
 export METEOR_PROFILE=1
-meteor build ../bundle --directory --architecture os.linux.x86_64 --server-only
+meteor build ../ --directory --architecture os.linux.x86_64 --server-only
