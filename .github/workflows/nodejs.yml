@@ -14,11 +14,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
-      run: |
-        echo ${HOME}
-        echo ${BUNDLE_DIR}
       env:
         CI: true
         METEOR_VERSION: 1.8.1
         BUNDLE_DIR: ${{ env.home }}
         BUILD_FLAGS: --architecture os.linux.x86_64  --allow-superuser --server-only
+      run: |
+        echo ${HOME}
+        echo ${BUNDLE_DIR}
