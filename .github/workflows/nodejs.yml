@@ -15,7 +15,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        ./build-meteor.sh
+        ./build-docker.sh
       env:
         CI: true
         METEOR_VERSION: 1.8.1
