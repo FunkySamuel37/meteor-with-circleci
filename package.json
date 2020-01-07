@@ -19,5 +19,13 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "release-it": {
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    }
   }
 }
