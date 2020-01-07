@@ -27,6 +27,9 @@
     },
     "github": {
       "release": true
+    },
+    "hooks": {
+      "after:bump": "auto-changelog -p"
     }
   },
   "version": "0.1.0",
