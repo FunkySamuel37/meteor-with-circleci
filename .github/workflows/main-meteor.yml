@@ -1,6 +1,9 @@
 name: Node CI
 
-on: [push]
+on:
+  push:
+    tags:
+      - v*
 
 jobs:
   build:
@@ -11,7 +14,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: build docker image
       run: |
-        ./build-docker.sh
+        echo ${GITHUB_REF}
+        # ./build-docker.sh
       env:
         CI: true
         METEOR_VERSION: 1.8.1
