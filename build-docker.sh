@@ -14,4 +14,4 @@ fi
 
 docker login --username funkyway --password $DOCKER_TOKEN
 docker build -t funkyway/github-action-test:${VERSION_STR} .
-docker push funkyway/github-action-test:{VERSION_STR}
+docker push funkyway/github-action-test:${VERSION_STR}
