@@ -23,13 +23,17 @@
   },
   "release-it": {
     "git": {
-      "tagName": "v${version}"
+      "tagName": "v${version}",
+      "push": true
     },
     "github": {
-      "release": true
+      "release": false
     },
     "hooks": {
       "after:bump": "npx auto-changelog -p"
+    },
+    "npm": {
+      "publish": false
     }
   },
   "version": "0.3.0",
