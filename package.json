@@ -37,6 +37,10 @@
       "publish": false
     }
   },
+  "auto-changelog": {
+    "output": "HISTORY.md",
+    "template": "keepachangelog"
+  },
   "version": "0.5.2",
   "devDependencies": {
     "auto-changelog": "^1.16.2",
