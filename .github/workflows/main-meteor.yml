@@ -15,7 +15,8 @@ jobs:
     - name: build docker image
       run: |
         echo ${GITHUB_REF}
-        # ./build-docker.sh
+        echo ${GITHUB_HEAD_REF}
+        echo ${GITHUB_BASE_REF}
       env:
         CI: true
         METEOR_VERSION: 1.8.1
