@@ -1,4 +1,4 @@
-FROM node:8-jessie
+FROM node:8-jessie AS builder
 
 ENV BUILD_FLAGS="--architecture os.linux.x86_64  --allow-superuser --server-only"
 ENV APP_SOURCE_DIR="/appsrc"
@@ -18,8 +18,10 @@ RUN ./.scripts/install-packages.sh
 COPY . .
 RUN ./.scripts/build-meteor.sh
 
+FROM node:8-alpine
+COPY --from=builder /bundle /bundle
 WORKDIR /bundle
-RUN (cd programs/server && npm install)
+RUN (cd programs/server && npm install && npm cache clean)
 
 ENV PORT 8080
 ENV MONGO_URL=$MONGO_SERVICE_HOST:$MONGO_SERVICE_PORT
