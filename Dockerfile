@@ -1,13 +1,15 @@
 FROM node:8-jessie
 
 ENV BUILD_FLAGS="--architecture os.linux.x86_64  --allow-superuser --server-only"
-ENV METEOR_VERSION="1.8.1"
+ENV APP_SOURCE_DIR="/appsrc"
 ENV METEOR_ALLOW_SUPERUSER=true
 
-WORKDIR /appsrc
+WORKDIR ${APP_SOURCE_DIR}
 
 COPY .scripts ./.scripts
 RUN ./.scripts/install-deps.sh
+
+COPY .meteor/release ./.meteor/release
 RUN ./.scripts/install-meteor.sh
 
 COPY package.json package-lock.json ./
