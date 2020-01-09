@@ -41,7 +41,7 @@
     "output": "HISTORY.md",
     "template": "keepachangelog"
   },
-  "version": "0.5.8",
+  "version": "0.5.9",
   "devDependencies": {
     "auto-changelog": "^1.16.2",
     "release-it": "^12.4.3"
