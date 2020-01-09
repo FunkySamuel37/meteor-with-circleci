@@ -21,11 +21,11 @@ RUN ./.scripts/build-meteor.sh
 FROM node:8-alpine
 COPY --from=builder /bundle /bundle
 WORKDIR /bundle
-COPY entrypoint.sh .
+COPY entrypoint.sh /entrypoint.sh
 RUN cd programs/server && npm install --production && npm cache clean --force
 
 ENV PORT 8080
 ENV MONGO_URL=$MONGO_SERVICE_HOST:$MONGO_SERVICE_PORT
 EXPOSE 8080
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["node", "main.js"]
