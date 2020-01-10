@@ -22,6 +22,7 @@ FROM node:8-alpine
 COPY --from=builder /bundle /bundle
 WORKDIR /bundle
 COPY entrypoint.sh /entrypoint.sh
+RUN cat /entrypoint.sh
 RUN cd programs/server && npm install --production && npm cache clean --force
 
 ENV PORT 8080
